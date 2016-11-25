@@ -17,7 +17,9 @@
         </activity>
         <activity android:name=".PlayActivity" />
         <activity android:name=".ChooseStructor" />
-        <activity android:name=".Chooselmage"></activity>
+        <activity android:name=".Chooselmage" />
+        <activity android:name=".Play4Activity" />
+        <activity android:name=".Play5Activity"></activity>
     </application>
 
 </manifest>
