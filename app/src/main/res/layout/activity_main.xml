@@ -20,7 +20,8 @@
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:textColor="#f90505"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_margin="25dp" />
 
     <ImageView
         app:srcCompat="@drawable/playbotton2"
@@ -34,11 +35,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textView"
-        android:layout_above="@+id/imageView"
-        android:layout_margin="25dp"
+        android:layout_margin="20dp"
         android:padding="15dp"
-        android:background="#abeefefa">
+        android:background="#abeefefa"
+        android:layout_centerHorizontal="false"
+        android:layout_above="@+id/imageView"
+        android:layout_below="@+id/textView">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +52,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView2"
-                android:textColor="@android:color/background_dark" />
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
