@@ -3,6 +3,7 @@ package rtc.ariya.supakrit.jigsaw;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -64,6 +65,8 @@ public class ChooseStructor extends AppCompatActivity implements View.OnClickLis
                 break;
 
         }   // switch
+
+        Log.d("19decV1", "index ==> " + index);
 
         Intent intent = new Intent(ChooseStructor.this, Chooselmage.class);
         intent.putExtra("Index", index);

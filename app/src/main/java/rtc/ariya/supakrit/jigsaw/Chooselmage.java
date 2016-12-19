@@ -1,8 +1,8 @@
 package rtc.ariya.supakrit.jigsaw;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,11 +14,10 @@ public class Chooselmage extends AppCompatActivity {
 
     //Explicit
     private int anInt;
-    private int[] imageInt = new int[]{R.drawable.a1, R.drawable.a2,
-            R.drawable.a3, R.drawable.a4, R.drawable.a5, R.drawable.a6,
-            R.drawable.a7, R.drawable.a8, R.drawable.a9, R.drawable.a10};
-    private String[] titleStrings = new String[]{"3 x3 ","4 x 4","5 x 5"};
-    private int[] iconInts = new int[]{R.drawable.e1,R.drawable.e2,R.drawable.e3};
+    private MyConstanct myConstanct;
+    private int[] imageInt;
+    private String[] titleStrings = new String[]{"3 x3 ", "4 x 4", "5 x 5"};
+    private int[] iconInts = new int[]{R.drawable.e1, R.drawable.e2, R.drawable.e3};
     private ImageView imageView;
     private TextView textView;
     private ListView listView;
@@ -28,6 +27,9 @@ public class Chooselmage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chooselmage);
 
+        myConstanct = new MyConstanct();
+        imageInt = myConstanct.getImageInt();
+
         //Bind Widget
         imageView = (ImageView) findViewById(R.id.imageView5);
         textView = (TextView) findViewById(R.id.textView7);
@@ -36,7 +38,7 @@ public class Chooselmage extends AppCompatActivity {
 
         //Get Value From Intent
         anInt = getIntent().getIntExtra("Index", 0);
-        Log.d("tonV1", "Index ==> " + anInt);
+        Log.d("19decV2", "Index ที่รับค่ามา ==> " + anInt);
 
         //Show View
         imageView.setImageResource(iconInts[anInt]);
@@ -54,8 +56,9 @@ public class Chooselmage extends AppCompatActivity {
 
                     case 0: // for 3x3
 
-                        Intent intent = new Intent(Chooselmage.this, PlayActivity.class);
+                        Intent intent = new Intent(Chooselmage.this, Play3x3.class);
                         intent.putExtra("Image", imageInt[position]);
+                        intent.putExtra("Index", anInt);
                         startActivity(intent);
 
 
@@ -64,11 +67,13 @@ public class Chooselmage extends AppCompatActivity {
 
                         Intent intent1 = new Intent(Chooselmage.this, Play4Activity.class);
                         intent1.putExtra("Image", imageInt[position]);
+                        intent1.putExtra("Index", anInt);
                         startActivity(intent1);
                         break;
                     case 2: // for 5x5
                         Intent intent2 = new Intent(Chooselmage.this, Play5Activity.class);
                         intent2.putExtra("Image", imageInt[position]);
+                        intent2.putExtra("Index", anInt);
                         startActivity(intent2);
                         break;
 
@@ -77,7 +82,6 @@ public class Chooselmage extends AppCompatActivity {
 
             }   //onItem
         });
-
 
 
     }   // Main Method
