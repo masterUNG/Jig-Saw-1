@@ -182,6 +182,7 @@ public class Play3x3 extends AppCompatActivity implements View.OnClickListener {
         Log.d("1janV1", "Value ==> " + indexRandom[indexPlay]);
         if (chooseShowAnInt == indexRandom[indexPlay]) {
             imageShowImageViews[chooseShowAnInt].setImageResource(a1_3x3Ints[indexRandom[indexPlay]]);
+            imageBooleen[chooseShowAnInt] = false;
         } else {
             Toast.makeText(Play3x3.this, "Image False", Toast.LENGTH_SHORT).show();
         }
