@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class Play3x3 extends AppCompatActivity implements View.OnClickListener {
 
@@ -16,6 +17,7 @@ public class Play3x3 extends AppCompatActivity implements View.OnClickListener {
     private boolean[] imageBooleen;
     private int chooseShowAnInt;
     private  int indexShow = 0, indexPlay = 0;
+    private int[] indexRandom, a1_3x3Ints;
 
 
     @Override
@@ -61,8 +63,8 @@ public class Play3x3 extends AppCompatActivity implements View.OnClickListener {
 
     private void createView() {
 
-        int[] indexRandom = myConstanct.getRan_a1_3x3Ints();
-        int[] a1_3x3Ints = myConstanct.getA1_3x3Ints();
+        indexRandom = myConstanct.getRan_a1_3x3Ints();
+        a1_3x3Ints = myConstanct.getA1_3x3Ints();
 
         for (int i = 0; i < indexRandom.length; i++) {
             imageClickImageViews[indexRandom[i]].setImageResource(a1_3x3Ints[i]);
@@ -177,6 +179,12 @@ public class Play3x3 extends AppCompatActivity implements View.OnClickListener {
     private void checkImage(int indexPlay) {
 
         Log.d("1janV1", "indexPlay ==> " + indexPlay);
+        Log.d("1janV1", "Value ==> " + indexRandom[indexPlay]);
+        if (chooseShowAnInt == indexRandom[indexPlay]) {
+            imageShowImageViews[chooseShowAnInt].setImageResource(a1_3x3Ints[indexRandom[indexPlay]]);
+        } else {
+            Toast.makeText(Play3x3.this, "Image False", Toast.LENGTH_SHORT).show();
+        }
 
     }   // checkImage
 
